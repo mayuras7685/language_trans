@@ -1,5 +1,10 @@
 # Importing necessary modules required 
+from playsound import playsound
 import speech_recognition as sr 
+from googletrans import Translator 
+from gtts import gTTS 
+import os
+
 
 #tupple of languages 
 dic=('afrikaans', 'af', 'albanian', 'sq', 'amharic', 'am', 
@@ -100,3 +105,13 @@ translator = Translator()
 text_to_translate = translator.translate(query, dest=to_lang)
 text = text_to_translate.text
 
+
+speak = gTTS(text=text, lang=to_lang, slow=False)
+  
+# Using save() method to save the translated speech in capture_voice.mp3
+speak.save("captured_voice.mp3")
+  
+# Using OS module to run the translated voice.
+playsound('captured_voice.mp3')
+os.remove('captured_voice.mp3')
+print(text)
