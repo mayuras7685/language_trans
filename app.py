@@ -82,3 +82,12 @@ def destination_language():
 to_lang = destination_language()
   
 
+
+# Mapping it with the code
+while (to_lang not in dic):
+    print("Language in which you are trying to convert\
+    is currently not available ,please input some other language")
+    print()
+    to_lang = destination_language()
+  
+to_lang = dic[dic.index(to_lang)+1]
